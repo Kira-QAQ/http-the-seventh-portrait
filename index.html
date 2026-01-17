@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>《视觉之声》艺术杂志 - 编辑部公共投稿邮箱</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Georgia', 'Times New Roman', 'SimSun', serif;
+        }
+        
+        body {
+            background-color: #f8f6f2;
+            color: #333;
+            line-height: 1.7;
+            min-height: 100vh;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            min-height: 100vh;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.08);
+        }
+        
+        .magazine-header {
+            background: linear-gradient(135deg, #2c3e50 0%, #1a2530 100%);
+            color: white;
+            padding: 40px 50px 30px;
+            border-bottom: 5px solid #d4af37;
+        }
+        
+        .magazine-title {
+            font-size: 3.5rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            font-family: 'Palatino', 'Georgia', serif;
+            margin-bottom: 5px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        
+        .magazine-subtitle {
+            font-size: 1.4rem;
+            color: #d4af37;
+            font-style: italic;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+        
+        .department-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .department-name {
+            font-size: 1.3rem;
+            color: #ecf0f1;
+            font-weight: 500;
+        }
+        
+        .current-date {
+            font-size: 1rem;
+            color: #bdc3c7;
+        }
+        
+        .email-container {
+            padding: 40px 50px 50px;
+        }
+        
+        .email-header {
+            border-bottom: 2px solid #e0d6c8;
+            padding-bottom: 25px;
+            margin-bottom: 35px;
+        }
+        
+        .email-subject {
+            color: #c0392b;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        .email-metadata {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            color: #7f8c8d;
+            font-size: 1rem;
+        }
+        
+        .metadata-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .email-body {
+            font-size: 1.15rem;
+            color: #2c3e50;
+        }
+        
+        .email-body p {
+            margin-bottom: 24px;
+            text-align: justify;
+        }
+        
+        .quote {
+            font-style: italic;
+            color: #2980b9;
+            border-left: 4px solid #d4af37;
+            padding: 20px 25px;
+            margin: 30px 40px;
+            background-color: #f8f5f0;
+            border-radius: 0 5px 5px 0;
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+        
+        .warning-text {
+            color: #c0392b;
+            font-weight: 600;
+        }
+        
+        .forum-link-container {
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .forum-link {
+            display: inline-block;
+            background: linear-gradient(to right, #2c3e50, #34495e);
+            border: none;
+            border-radius: 6px;
+            padding: 18px 35px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: 600;
+            font-size: 1.15rem;
+            box-shadow: 0 4px 12px rgba(44, 62, 80, 0.3);
+            border: 2px solid #d4af37;
+        }
+        
+        .forum-link:hover {
+            background: linear-gradient(to right, #34495e, #2c3e50);
+            box-shadow: 0 6px 16px rgba(44, 62, 80, 0.4);
+            transform: translateY(-2px);
+        }
+        
+        .link-description {
+            color: #7f8c8d;
+            margin-top: 15px;
+            font-size: 0.95rem;
+            font-style: italic;
+        }
+        
+        .investigation-request {
+            background: #f8f5f0;
+            border: 1px solid #e0d6c8;
+            border-radius: 8px;
+            padding: 30px;
+            margin: 40px 0;
+        }
+        
+        .request-title {
+            color: #2c3e50;
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            border-bottom: 2px solid #d4af37;
+            padding-bottom: 10px;
+        }
+        
+        .request-list {
+            list-style-type: none;
+            counter-reset: item;
+            margin: 20px 0;
+        }
+        
+        .request-list li {
+            counter-increment: item;
+            margin-bottom: 15px;
+            padding-left: 35px;
+            position: relative;
+        }
+        
+        .request-list li:before {
+            content: counter(item) ".";
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: #d4af37;
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        
+        .sign-off {
+            font-style: italic;
+            color: #2c3e50;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px dashed #e0d6c8;
+            text-align: right;
+        }
+        
+        .magazine-footer {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 25px 50px;
+            text-align: center;
+            border-top: 5px solid #d4af37;
+        }
+        
+        .footer-text {
+            font-size: 0.95rem;
+        }
+        
+        .footer-note {
+            font-size: 0.85rem;
+            color: #bdc3c7;
+            margin-top: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                max-width: 100%;
+            }
+            
+            .magazine-header, .email-container {
+                padding: 30px 25px;
+            }
+            
+            .magazine-title {
+                font-size: 2.5rem;
+            }
+            
+            .email-subject {
+                font-size: 1.5rem;
+            }
+            
+            .quote {
+                margin: 20px 0;
+                padding: 15px 20px;
+            }
+        }
+        
+        .highlight {
+            background-color: rgba(212, 175, 55, 0.15);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="magazine-header">
+            <h1 class="magazine-title">《视觉之声》艺术杂志</h1>
+            <div class="magazine-subtitle">艺术·历史·文化·探索</div>
+            
+            <div class="department-info">
+                <div class="department-name">编辑部公共投稿邮箱</div>
+                <div class="current-date">2023年10月27日</div>
+            </div>
+        </header>
+        
+        <main class="email-container">
+            <div class="email-header">
+                <h2 class="email-subject">【紧急！！！】紫藤画廊第七幅肖像仍在杀人</h2>
+                <div class="email-metadata">
+                    <div class="metadata-item">
+                        <i class="fas fa-user-circle"></i>
+                        <span><strong>发件人:</strong> anonymousr@protonmail.com</span>
+                    </div>
+                    <div class="metadata-item">
+                        <i class="fas fa-clock"></i>
+                        <span><strong>发送时间:</strong> 2023年10月23日 03:17 AM</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="email-body">
+                <p>编辑您好，</p>
+                
+                <p>我是当年紫藤画廊事件的亲历者。</p>
+                
+                <p>关于那幅画，你们可能听过一些传闻。</p>
+                
+                <p>在紫藤画廊开业营业期间，多位游客曾私下反映，当独自站在第七幅肖像前时，会莫名感到脊背发凉、呼吸急促，有人声称眼角余光瞥见画中人物的手指轻微蜷缩，还有人听见贴近耳畔的叹息声------但这些体验从未在监控录像中得到证实。</p>
+                
+                <p>然而，不久后这幅肖像关联起三场死亡------参观者皆在长时间驻足后离奇身亡，死状平静却瞳孔散大，遗物中不约而同留下与画作相关的诡异痕迹。</p>
+                
+                <p>画廊关闭后，画作宣称已被销毁。但我看过销毁记录的照片------<span class="warning-text">那不是原作，是赝品</span>。真正的肖像，至今还在某个地方。</p>
+                
+                <p>十二年过去了，我本以为那场噩梦已经结束，但最近发生的事让我确信------<span class="warning-text">诅咒还在继续</span>。</p>
+                
+                <p>上周，一个没有寄件人的包裹出现在我家门口。里面只有一张泛黄的纸片，上面的字迹像是用稀释的血浆写就：</p>
+                
+                <div class="quote">
+                    你让它更完整了。<br>
+                    现在，它需要完成最后的仪式。
+                </div>
+                
+                <p>包裹寄出的日期是2023年10月15日------正是当年画廊关闭的月日。</p>
+                
+                <p>我最近重新调查时，在一个艺术论坛里发现了一些特别的东西。</p>
+                
+                <div class="forum-link-container">
+                    <a href="https://forum.html/" class="forum-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> 点击进入"艺海拾疑"论坛
+                    </a>
+                    <div class="link-description">该链接已启用特殊方法解析，可直接访问到隐藏的网页</div>
+                </div>
+                
+                <p>不知道搜什么的时候，可以在论坛里搜索<span class="highlight">"紫藤画廊"</span>。</p>
+                
+                <div class="investigation-request">
+                    <h3 class="request-title">我需要你的帮助，帮我查明：</h3>
+                    <ul class="request-list">
+                        <li>那幅肖像的历史</li>
+                        <li>灵异事件的原因</li>
+                        <li>肖像画杀人的真相</li>
+                    </ul>
+                    <p>我已身陷危险，但在那个论坛里，那里还残留着真相的碎片。</p>
+                </div>
+                
+                <div class="sign-off">
+                    <p>这幅画还在黑暗中睁着眼，而我能做的，只有把笔交给你。</p>
+                </div>
+            </div>
+        </main>
+        
+        <footer class="magazine-footer">
+            <div class="footer-text">《视觉之声》艺术杂志编辑部 · 版权所有 © 2023</div>
+            <div class="footer-note">投稿邮箱：submission@visualvoice-art.com | 编辑部电话：(010) 8888-9999</div>
+        </footer>
+    </div>
+
+    <script>
+        // 简单的页面交互效果
+        document.addEventListener('DOMContentLoaded', function() {
+            // 为链接添加点击效果
+            const forumLink = document.querySelector('.forum-link');
+            if (forumLink) {
+                forumLink.addEventListener('click', function() {
+                    // 添加简单的点击反馈
+                    this.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 200);
+                });
+            }
+            
+            // 添加页面加载动画
+            const emailBody = document.querySelector('.email-body');
+            if (emailBody) {
+                emailBody.style.opacity = '0';
+                emailBody.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    emailBody.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                    emailBody.style.opacity = '1';
+                    emailBody.style.transform = 'translateY(0)';
+                }, 300);
+            }
+            
+            // 为高亮文本添加轻微动画
+            const highlights = document.querySelectorAll('.highlight, .warning-text');
+            highlights.forEach((el, index) => {
+                setTimeout(() => {
+                    el.style.transition = 'all 0.5s ease';
+                    el.style.boxShadow = '0 0 0 2px rgba(212, 175, 55, 0.3)';
+                    setTimeout(() => {
+                        el.style.boxShadow = 'none';
+                    }, 1000);
+                }, 500 + (index * 300));
+            });
+        });
+    </script>
+</body>
+</html>
