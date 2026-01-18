@@ -714,7 +714,7 @@
                                 const resultItem = document.createElement('div');
                                 resultItem.className = 'result-item';
                                 resultItem.innerHTML = `
-                                    <a href="${item.url}" class="result-link">${item.title}</a>
+                                    <a href="${item.url}" class="result-link" target="_blank">${item.title}</a>
                                 `;
                                 resultsContainer.appendChild(resultItem);
                             });
@@ -723,7 +723,7 @@
                             const resultItem = document.createElement('div');
                             resultItem.className = 'result-item';
                             resultItem.innerHTML = `
-                                <a href="${data.url}" class="result-link">${data.title}</a>
+                                <a href="${data.url}" class="result-link" target="_blank">${data.title}</a>
                             `;
                             resultsContainer.appendChild(resultItem);
                         }
