@@ -12,8 +12,8 @@
         }
         
         body {
-            background-color: #f0f2f5;
-            color: #333;
+            background-color: #f8f6f2;
+            color: #5a534c;
             font-family: Arial, Helvetica, 'Microsoft YaHei', sans-serif;
             line-height: 1.5;
             font-size: 14px;
@@ -24,17 +24,17 @@
         .container {
             width: 1000px;
             margin: 0 auto;
-            background-color: #fff;
+            background-color: #fefcf8;
             min-height: 100vh;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            box-shadow: 0 0 15px rgba(90, 83, 76, 0.1);
         }
         
         /* 顶部导航 */
         .header {
-            background-color: #4267b2;
-            color: white;
+            background-color: #9a8c7d;
+            color: #f5f1ea;
             padding: 12px 20px;
-            border-bottom: 1px solid #29487d;
+            border-bottom: 2px solid #8a7c6d;
         }
         
         .header-top {
@@ -47,40 +47,42 @@
         .logo {
             font-size: 22px;
             font-weight: bold;
-            color: white;
+            color: #f5f1ea;
             text-decoration: none;
         }
         
         .user-info {
             font-size: 13px;
-            color: #e0e0e0;
+            color: #d4ccc2;
         }
         
         .nav {
             display: flex;
             gap: 25px;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            border-top: 1px solid rgba(180, 172, 162, 0.3);
             padding-top: 10px;
         }
         
         .nav a {
-            color: white;
+            color: #f5f1ea;
             text-decoration: none;
             font-size: 14px;
         }
         
         .nav a:hover {
             text-decoration: underline;
+            color: #e6d8c3;
         }
         
         .nav a.active {
             font-weight: bold;
+            color: #e6d8c3;
         }
         
         /* 搜索区域 */
         .search-area {
-            background-color: #f6f7f9;
-            border-bottom: 1px solid #dddfe2;
+            background-color: #f9f7f3;
+            border-bottom: 1px solid #d8d2c8;
             padding: 15px 20px;
         }
         
@@ -92,37 +94,38 @@
         
         .search-label {
             font-size: 14px;
-            color: #606770;
+            color: #8a7c6d;
             white-space: nowrap;
         }
         
         .search-input {
             flex: 1;
             padding: 8px 12px;
-            border: 1px solid #ccd0d5;
+            border: 1px solid #c5bdb2;
             border-radius: 0;
             font-size: 14px;
             max-width: 300px;
+            background-color: #fffefc;
         }
         
         .search-btn {
             padding: 8px 15px;
-            background-color: #f5f6f7;
-            border: 1px solid #ccd0d5;
-            color: #4b4f56;
+            background-color: #d8d2c8;
+            border: 1px solid #c5bdb2;
+            color: #6c645a;
             cursor: pointer;
             font-size: 14px;
             white-space: nowrap;
         }
         
         .search-btn:hover {
-            background-color: #ebedf0;
+            background-color: #ccc6bc;
         }
         
         .search-results {
             margin-top: 15px;
-            background-color: white;
-            border: 1px solid #dddfe2;
+            background-color: #fffefc;
+            border: 1px solid #d8d2c8;
             padding: 15px;
             display: none;
         }
@@ -131,14 +134,14 @@
             font-size: 16px;
             font-weight: bold;
             margin-bottom: 10px;
-            color: #1c1e21;
-            border-bottom: 1px solid #eee;
+            color: #8a7c6d;
+            border-bottom: 1px solid #e8e2d8;
             padding-bottom: 8px;
         }
         
         .result-item {
             padding: 8px 0;
-            border-bottom: 1px solid #f0f2f5;
+            border-bottom: 1px solid #f1ede5;
         }
         
         .result-item:last-child {
@@ -146,13 +149,14 @@
         }
         
         .result-link {
-            color: #385898;
+            color: #9a8c7d;
             text-decoration: none;
             font-size: 14px;
         }
         
         .result-link:hover {
             text-decoration: underline;
+            color: #7d7163;
         }
         
         /* 主内容区 */
@@ -163,15 +167,15 @@
         .page-title {
             font-size: 18px;
             font-weight: bold;
-            color: #1c1e21;
+            color: #7d7163; 
             margin-bottom: 15px;
             padding-bottom: 10px;
-            border-bottom: 1px solid #dddfe2;
+            border-bottom: 2px solid #d8d2c8;
         }
         
         .forum-notice {
-            background-color: #f0f8ff;
-            border: 1px solid #b3d4fc;
+            background-color: #f7f5f1;
+            border: 1px solid #d8d2c8;
             padding: 15px;
             margin-bottom: 20px;
             font-size: 13px;
@@ -179,12 +183,12 @@
         
         .notice-title {
             font-weight: bold;
-            color: #1c1e21;
+            color: #7d7163; 
             margin-bottom: 5px;
         }
         
         .notice-meta {
-            color: #65676b;
+            color: #9a938b;
             font-size: 12px;
             margin-bottom: 10px;
         }
@@ -192,33 +196,33 @@
         /* 帖子区域 */
         .post {
             margin-bottom: 25px;
-            border: 1px solid #dddfe2;
-            background-color: #fff;
+            border: 1px solid #d8d2c8;
+            background-color: #fffefc;
         }
         
         .post-header {
-            background-color: #f5f6f7;
+            background-color: #f5f3ef;
             padding: 12px 15px;
-            border-bottom: 1px solid #dddfe2;
+            border-bottom: 1px solid #d8d2c8;
         }
         
         .post-title {
             font-size: 16px;
             font-weight: bold;
-            color: #1c1e21;
+            color: #6c5848;
             margin-bottom: 5px;
         }
         
         .post-meta {
             font-size: 12px;
-            color: #65676b;
+            color: #8a7c6d; 
         }
         
         .post-body {
             padding: 15px;
             font-size: 14px;
             line-height: 1.6;
-            color: #1c1e21;
+            color: #5a534c; 
         }
         
         .post-body p {
@@ -226,15 +230,15 @@
         }
         
         .comments {
-            background-color: #fafbfc;
-            border-top: 1px solid #dddfe2;
+            background-color: #f9f7f3;
+            border-top: 1px solid #e8e2d8;
             padding: 15px;
         }
         
         .comment {
             margin-bottom: 15px;
             padding-bottom: 15px;
-            border-bottom: 1px solid #e9ebee;
+            border-bottom: 1px solid #e8e2d8;
         }
         
         .comment:last-child {
@@ -245,39 +249,39 @@
         
         .comment-meta {
             font-size: 12px;
-            color: #65676b;
+            color: #8a7c6d; 
             margin-bottom: 8px;
         }
         
         .comment-author {
-            color: #385898;
+            color: #7d7163; 
             font-weight: bold;
         }
         
         .comment-time {
-            color: #8a8d91;
+            color: #9a938b; 
             margin-left: 10px;
         }
         
         .comment-content {
             font-size: 14px;
             line-height: 1.5;
-            color: #1c1e21;
+            color: #5a534c;
         }
         
         hr {
             border: none;
-            border-top: 1px solid #dddfe2;
+            border-top: 1px solid #e8e2d8;
             margin: 25px 0;
         }
         
         /* 页脚 */
         .footer {
-            background-color: #f5f6f7;
-            border-top: 1px solid #dddfe2;
+            background-color: #f5f3ef;
+            border-top: 1px solid #d8d2c8;
             padding: 15px 20px;
             font-size: 12px;
-            color: #8a8d91;
+            color: #8a7c6d; 
             text-align: center;
         }
         
@@ -325,8 +329,8 @@
         <!-- 搜索区域 -->
         <div class="search-area">
             <div class="search-form">
-                <div class="search-label">搜索论坛：</div>
-                <input type="text" class="search-input" id="search-input" placeholder="输入关键词">
+                <div class="search-label">搜索：</div>
+                <input type="text" class="search-input" id="search-input" placeholder="请输入关键词">
                 <button class="search-btn" id="search-btn">搜索</button>
             </div>
             
@@ -667,24 +671,24 @@
                         url: 'news-gallery-closing-2010.html'
                     }
                 ],
-                '肖像': {
-                    title: '肖像画专题讨论',
+                '窗边的忏悔者': {
+                    title: '灵异研究协会',
                     url: '#'
                 },
                 '圣玛丽亚教堂': {
-                    title: '圣玛丽亚教堂火灾记录',
+                    title: '火灾老报纸',
                     url: '#'
                 },
-                '柯罗': {
-                    title: '柯罗作品拍卖信息',
+                '数字化档案库': {
+                    title: '圣玛丽亚教堂档案',
                     url: '#'
                 },
-                '威尼斯红': {
-                    title: '威尼斯红颜料配方讨论',
+                '百年诅咒艺术品': {
+                    title: '江远博客',
                     url: '#'
                 },
-                '古典布光': {
-                    title: '古典布光摄影技术',
+                '林慕云': {
+                    title: '林慕云个人资料',
                     url: '#'
                 }
             };
