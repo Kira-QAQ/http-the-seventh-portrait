@@ -5,247 +5,461 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>《视觉之声》艺术杂志 - 编辑部公共投稿邮箱</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Georgia', 'Times New Roman', 'SimSun', serif;
         }
         
         body {
-            background-color: #f8f6f2;
+            background-color: #f9f7f4;
             color: #333;
             line-height: 1.7;
             min-height: 100vh;
             padding: 0;
+            font-family: 'Inter', sans-serif;
+            background-image: linear-gradient(to bottom, #f9f7f4 0%, #f1efe8 100%);
         }
         
         .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: white;
-            min-height: 100vh;
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.08);
+            max-width: 1000px;
+            margin: 40px auto;
+            background: #ffffff;
+            min-height: calc(100vh - 80px);
+            border: 1px solid #e8e6df;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+        
+        /* ART FORUM 风格顶部条 */
+        .artforum-header {
+            background: #000;
+            color: white;
+            padding: 12px 60px;
+            font-family: 'Source Serif Pro', serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+            border-bottom: 4px solid #e60000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .artforum-header::after {
+            content: '艺术杂志';
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: #999;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 2px;
         }
         
         .magazine-header {
-            background: linear-gradient(135deg, #2c3e50 0%, #1a2530 100%);
-            color: white;
-            padding: 40px 50px 30px;
-            border-bottom: 5px solid #d4af37;
+            padding: 60px 60px 40px;
+            background: white;
+            border-bottom: 1px solid #e8e6df;
+            position: relative;
         }
         
         .magazine-title {
+            font-family: 'Source Serif Pro', serif;
             font-size: 3.5rem;
-            font-weight: 400;
-            letter-spacing: 2px;
-            font-family: 'Palatino', 'Georgia', serif;
-            margin-bottom: 5px;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+            color: #222;
+            line-height: 1.1;
         }
         
         .magazine-subtitle {
-            font-size: 1.4rem;
-            color: #d4af37;
-            font-style: italic;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
+            font-size: 1.1rem;
+            color: #666;
+            font-weight: 400;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-top: 25px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .magazine-subtitle::before,
+        .magazine-subtitle::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #ddd;
         }
         
         .department-info {
             display: flex;
             justify-content: space-between;
-            align-items: flex-end;
-            margin-top: 25px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            align-items: center;
+            margin-top: 40px;
+            padding-top: 25px;
+            border-top: 1px solid #e8e6df;
         }
         
         .department-name {
-            font-size: 1.3rem;
-            color: #ecf0f1;
+            font-size: 1.1rem;
+            color: #444;
             font-weight: 500;
+            letter-spacing: 1px;
+            font-family: 'Source Serif Pro', serif;
         }
         
         .current-date {
             font-size: 1rem;
-            color: #bdc3c7;
+            color: #888;
+            font-weight: 400;
         }
         
         .email-container {
-            padding: 40px 50px 50px;
+            padding: 50px 60px 60px;
         }
         
         .email-header {
-            border-bottom: 2px solid #e0d6c8;
-            padding-bottom: 25px;
-            margin-bottom: 35px;
+            border-bottom: 1px solid #e8e6df;
+            padding-bottom: 30px;
+            margin-bottom: 40px;
         }
         
         .email-subject {
-            color: #c0392b;
-            font-size: 1.8rem;
-            margin-bottom: 15px;
+            color: #e60000;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
             font-weight: 600;
             line-height: 1.3;
+            font-family: 'Source Serif Pro', serif;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .email-subject::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #e60000;
+            font-size: 1.2rem;
         }
         
         .email-metadata {
             display: flex;
             flex-wrap: wrap;
-            gap: 20px;
-            color: #7f8c8d;
-            font-size: 1rem;
+            gap: 25px;
+            color: #666;
+            font-size: 0.95rem;
         }
         
         .metadata-item {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+            padding: 5px 15px;
+            background: #f8f6f2;
+            border-radius: 3px;
+        }
+        
+        .metadata-item i {
+            color: #888;
+            font-size: 0.9rem;
         }
         
         .email-body {
             font-size: 1.15rem;
-            color: #2c3e50;
+            color: #333;
+            font-weight: 400;
+            letter-spacing: 0.2px;
+            line-height: 1.8;
         }
         
         .email-body p {
-            margin-bottom: 24px;
+            margin-bottom: 30px;
             text-align: justify;
         }
         
         .quote {
+            font-family: 'Source Serif Pro', serif;
             font-style: italic;
-            color: #2980b9;
-            border-left: 4px solid #d4af37;
-            padding: 20px 25px;
-            margin: 30px 40px;
-            background-color: #f8f5f0;
-            border-radius: 0 5px 5px 0;
-            font-size: 1.2rem;
+            color: #444;
+            border-left: 3px solid #e60000;
+            padding: 30px 35px;
+            margin: 40px 0 40px 40px;
+            background: #f8f6f2;
+            font-size: 1.3rem;
             line-height: 1.6;
+            position: relative;
+        }
+        
+        .quote::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 4rem;
+            color: rgba(230, 0, 0, 0.1);
+            font-family: serif;
         }
         
         .warning-text {
-            color: #c0392b;
+            color: #e60000;
             font-weight: 600;
+            background: rgba(230, 0, 0, 0.05);
+            padding: 2px 6px;
+            border-radius: 2px;
+            position: relative;
         }
         
         .forum-link-container {
-            margin: 40px 0;
+            margin: 50px 0;
             text-align: center;
+            padding: 40px;
+            background: linear-gradient(to right, #f8f6f2, #f0ede6);
+            border: 1px solid #e8e6df;
+            position: relative;
         }
         
         .forum-link {
             display: inline-block;
-            background: linear-gradient(to right, #2c3e50, #34495e);
+            background: #000;
             border: none;
-            border-radius: 6px;
-            padding: 18px 35px;
+            border-radius: 0;
+            padding: 18px 45px;
             color: white;
             text-decoration: none;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
             font-weight: 600;
-            font-size: 1.15rem;
-            box-shadow: 0 4px 12px rgba(44, 62, 80, 0.3);
-            border: 2px solid #d4af37;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            font-family: 'Source Serif Pro', serif;
+        }
+        
+        .forum-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: #e60000;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
         }
         
         .forum-link:hover {
-            background: linear-gradient(to right, #34495e, #2c3e50);
-            box-shadow: 0 6px 16px rgba(44, 62, 80, 0.4);
-            transform: translateY(-2px);
+            background: #222;
+            letter-spacing: 1.2px;
+        }
+        
+        .forum-link:hover::after {
+            transform: scaleX(1);
+        }
+        
+        .forum-link i {
+            margin-right: 12px;
+            color: #e60000;
         }
         
         .link-description {
-            color: #7f8c8d;
-            margin-top: 15px;
+            color: #666;
+            margin-top: 20px;
             font-size: 0.95rem;
             font-style: italic;
         }
         
         .investigation-request {
-            background: #f8f5f0;
-            border: 1px solid #e0d6c8;
-            border-radius: 8px;
-            padding: 30px;
-            margin: 40px 0;
+            background: #f8f6f2;
+            border: 1px solid #e8e6df;
+            padding: 40px;
+            margin: 50px 0;
+            position: relative;
         }
         
         .request-title {
-            color: #2c3e50;
-            font-weight: 700;
-            margin-bottom: 20px;
+            color: #222;
+            font-weight: 600;
+            margin-bottom: 25px;
             font-size: 1.4rem;
-            border-bottom: 2px solid #d4af37;
-            padding-bottom: 10px;
+            font-family: 'Source Serif Pro', serif;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e60000;
+            display: inline-block;
         }
         
         .request-list {
             list-style-type: none;
-            counter-reset: item;
-            margin: 20px 0;
+            margin: 30px 0 20px 0;
         }
         
         .request-list li {
-            counter-increment: item;
-            margin-bottom: 15px;
-            padding-left: 35px;
+            margin-bottom: 20px;
+            padding-left: 45px;
             position: relative;
+            font-size: 1.1rem;
+            color: #444;
         }
         
         .request-list li:before {
-            content: counter(item) ".";
+            content: '→';
             position: absolute;
             left: 0;
             top: 0;
-            background: #d4af37;
-            color: white;
-            width: 25px;
-            height: 25px;
-            border-radius: 50%;
+            color: #e60000;
+            font-weight: bold;
+            font-size: 1.2rem;
+            width: 30px;
+            height: 30px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
-            font-size: 0.9rem;
+            background: white;
+            border: 1px solid #e8e6df;
         }
         
         .sign-off {
             font-style: italic;
-            color: #2c3e50;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px dashed #e0d6c8;
+            color: #666;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid #e8e6df;
             text-align: right;
+            font-family: 'Source Serif Pro', serif;
+            font-size: 1.2rem;
         }
         
         .magazine-footer {
-            background: #2c3e50;
-            color: #ecf0f1;
-            padding: 25px 50px;
-            text-align: center;
-            border-top: 5px solid #d4af37;
+            background: #f8f6f2;
+            color: #666;
+            padding: 30px 60px;
+            border-top: 1px solid #e8e6df;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
         }
         
         .footer-text {
-            font-size: 0.95rem;
+            font-weight: 500;
+            color: #444;
         }
         
         .footer-note {
+            color: #888;
+            text-align: right;
+        }
+        
+        .highlight {
+            background-color: rgba(230, 0, 0, 0.08);
+            padding: 2px 6px;
+            border-radius: 2px;
+            font-weight: 500;
+            color: #222;
+            font-style: italic;
+        }
+        
+        /* ART FORUM 风格边栏 - 左侧 */
+        .art-sidebar {
+            position: fixed;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-family: 'Source Serif Pro', serif;
+            font-size: 0.9rem;
+            color: #666;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            letter-spacing: 3px;
+            padding: 20px 10px;
+            border-left: 2px solid #e8e6df;
+            z-index: 100;
+        }
+        
+        .art-sidebar span {
+            margin-bottom: 30px;
+            font-weight: 600;
+            color: #222;
+            font-size: 1rem;
+            letter-spacing: 4px;
+        }
+        
+        .art-sidebar .museum-name {
+            margin-bottom: 15px;
+            font-weight: 600;
+            color: #222;
+        }
+        
+        .art-sidebar .museum-chinese {
             font-size: 0.85rem;
-            color: #bdc3c7;
-            margin-top: 10px;
+            color: #888;
+            margin-bottom: 40px;
+        }
+        
+        /* 右侧美术馆列表 */
+        .gallery-sidebar {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-family: 'Source Serif Pro', serif;
+            font-size: 0.9rem;
+            color: #666;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            letter-spacing: 2px;
+            padding: 20px 10px;
+            border-right: 2px solid #e8e6df;
+            text-align: right;
+            z-index: 100;
+        }
+        
+        .gallery-sidebar div {
+            margin-bottom: 40px;
+            line-height: 1.4;
+        }
+        
+        .gallery-sidebar .gallery-name {
+            font-weight: 600;
+            color: #222;
+            font-size: 1rem;
+            letter-spacing: 3px;
+        }
+        
+        .gallery-sidebar .gallery-chinese {
+            font-size: 0.85rem;
+            color: #888;
+            margin-top: 5px;
+            letter-spacing: 1px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 1200px) {
+            .art-sidebar,
+            .gallery-sidebar {
+                display: none;
+            }
         }
         
         @media (max-width: 768px) {
             .container {
-                max-width: 100%;
+                margin: 20px auto;
+                min-height: calc(100vh - 40px);
             }
             
-            .magazine-header, .email-container {
-                padding: 30px 25px;
+            .artforum-header {
+                padding: 12px 25px;
+                font-size: 1.5rem;
+            }
+            
+            .magazine-header, 
+            .email-container,
+            .magazine-footer {
+                padding: 40px 30px;
             }
             
             .magazine-title {
@@ -253,32 +467,132 @@
             }
             
             .email-subject {
-                font-size: 1.5rem;
+                font-size: 1.8rem;
+                padding-left: 20px;
             }
             
             .quote {
-                margin: 20px 0;
-                padding: 15px 20px;
+                margin: 30px 0;
+                padding: 25px 30px;
+            }
+            
+            .forum-link {
+                padding: 15px 35px;
+                font-size: 1rem;
+            }
+            
+            .magazine-footer {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
             }
         }
         
-        .highlight {
-            background-color: rgba(212, 175, 55, 0.15);
-            padding: 2px 6px;
-            border-radius: 3px;
-            font-weight: 500;
+        /* 纸张纹理效果 */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        /* 美术馆链接悬停效果 */
+        .art-sidebar div,
+        .gallery-sidebar div {
+            transition: all 0.3s ease;
+            cursor: pointer;
+            opacity: 0.7;
+        }
+        
+        .art-sidebar div:hover,
+        .gallery-sidebar div:hover {
+            opacity: 1;
+            color: #e60000;
+        }
+        
+        .art-sidebar div:hover .museum-name,
+        .gallery-sidebar div:hover .gallery-name {
+            color: #e60000;
+        }
+        
+        /* 浮动美术馆标签动画 */
+        .floating-label {
+            position: absolute;
+            font-family: 'Source Serif Pro', serif;
+            font-size: 0.8rem;
+            color: #888;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            letter-spacing: 2px;
+            animation: float 15s infinite ease-in-out;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
         }
     </style>
 </head>
 <body>
+    <!-- 左侧虚构艺术机构 -->
+    <div class="art-sidebar">
+        <span>VISUAL FORUM</span>
+        <div>
+            <div class="museum-name">VERIDIAN HALL</div>
+            <div class="museum-chinese">翠影艺术厅</div>
+        </div>
+        <div>
+            <div class="museum-name">OBSCURA GALLERY</div>
+            <div class="museum-chinese">暗影画廊</div>
+        </div>
+    </div>
+    
+    <!-- 右侧虚构美术馆 -->
+    <div class="gallery-sidebar">
+        <div>
+            <div class="gallery-name">NEXUS COLLECTIVE</div>
+            <div class="gallery-chinese">联结艺术共同体</div>
+        </div>
+        <div>
+            <div class="gallery-name">ECHO PAVILION</div>
+            <div class="gallery-chinese">回声艺术馆</div>
+        </div>
+        <div>
+            <div class="gallery-name">UMBRA MUSEUM</div>
+            <div class="gallery-chinese">影迹博物馆</div>
+        </div>
+        <div>
+            <div class="gallery-name">SILHOUETTE ARTS</div>
+            <div class="gallery-chinese">剪影艺术空间</div>
+        </div>
+    </div>
+    
+    <!-- 浮动装饰标签 -->
+    <div class="floating-label" style="top: 20%; left: 5%; animation-delay: 0s;">AURA GALLERY</div>
+    <div class="floating-label" style="top: 40%; right: 5%; animation-delay: 3s;">CHROMATIC SPACE</div>
+    <div class="floating-label" style="top: 70%; left: 8%; animation-delay: 6s;">LUMEN ART HALL</div>
+    
     <div class="container">
+        <div class="artforum-header">
+            《视觉之声》
+        </div>
+        
         <header class="magazine-header">
-            <h1 class="magazine-title">《视觉之声》艺术杂志</h1>
+            <h1 class="magazine-title">编辑部公共投稿邮箱</h1>
+            
             <div class="magazine-subtitle">艺术·历史·文化·探索</div>
             
             <div class="department-info">
-                <div class="department-name">编辑部公共投稿邮箱</div>
-                <div class="current-date">2023年10月23日</div>
+                <div class="department-name">视觉之声艺术杂志编辑部</div>
+                <div class="current-date">2023年10月7日</div>
             </div>
         </header>
         
@@ -292,7 +606,7 @@
                     </div>
                     <div class="metadata-item">
                         <i class="fas fa-clock"></i>
-                        <span><strong>发送时间:</strong> 2023年10月23日 03:17 AM</span>
+                        <span><strong>发送时间:</strong> 2023年10月7日 03:17 AM</span>
                     </div>
                 </div>
             </div>
@@ -304,13 +618,13 @@
                 
                 <p>关于那幅画，你们可能听过一些传闻。</p>
                 
-                <p>在紫藤画廊开业营业期间，多位游客曾私下反映，当独自站在第七幅肖像前时，会莫名感到脊背发凉、呼吸急促，有人声称眼角余光瞥见画中人物的手指轻微蜷缩，还有人听见贴近耳畔的叹息声------但这些体验从未在监控录像中得到证实。</p>
+                <p>在紫藤画廊开业营业期间，多位游客曾私下反映，当独自站在第七幅肖像前时，会莫名感到脊背发凉、呼吸急促，有人声称眼角余光瞥见画中人物的手指轻微蜷缩，还有人听见贴近耳畔的叹息声——但这些体验从未在监控录像中得到证实。</p>
                 
                 <p>然而，不久后这幅肖像关联起三场死亡：参观者皆在长时间驻足后离奇身亡，死状平静却瞳孔散大，遗物中不约而同留下与画作相关的诡异痕迹。</p>
                 
                 <p>画廊关闭后，画作宣称已被销毁。但我看过销毁记录的照片，<span class="warning-text">那不是原作，是赝品</span>。真正的肖像，至今还在某个地方。</p>
                 
-                <p>十二年过去了，我本以为那场噩梦已经结束，但最近发生的事让我确信------<span class="warning-text">诅咒还在继续</span>。</p>
+                <p>十二年过去了，我本以为那场噩梦已经结束，但最近发生的事让我确信——<span class="warning-text">诅咒还在继续</span>。</p>
                 
                 <p>上周，一个没有寄件人的包裹出现在我家门口。里面只有一张泛黄的纸片，上面的字迹像是用稀释的血浆写就：</p>
                 
@@ -319,7 +633,7 @@
                     现在，它需要完成最后的仪式。
                 </div>
                 
-                <p>包裹寄出的日期是2023年10月15日------正是当年画廊关闭的月日。</p>
+                <p>包裹寄出的日期是2023年10月5日——正是当年画廊关闭的月日。</p>
                 
                 <p>我最近重新调查时，在一个艺术论坛里发现了一些特别的东西。</p>
                 
@@ -355,13 +669,11 @@
     </div>
 
     <script>
-        // 简单的页面交互效果
         document.addEventListener('DOMContentLoaded', function() {
             // 为链接添加点击效果
             const forumLink = document.querySelector('.forum-link');
             if (forumLink) {
-                forumLink.addEventListener('click', function() {
-                    // 添加简单的点击反馈
+                forumLink.addEventListener('click', function(e) {
                     this.style.transform = 'scale(0.98)';
                     setTimeout(() => {
                         this.style.transform = '';
@@ -369,7 +681,7 @@
                 });
             }
             
-            // 添加页面加载动画
+            // 页面加载动画
             const emailBody = document.querySelector('.email-body');
             if (emailBody) {
                 emailBody.style.opacity = '0';
@@ -382,16 +694,74 @@
                 }, 300);
             }
             
-            // 为高亮文本添加轻微动画
-            const highlights = document.querySelectorAll('.highlight, .warning-text');
-            highlights.forEach((el, index) => {
+            // 警告文本动画
+            const warnings = document.querySelectorAll('.warning-text');
+            warnings.forEach((el, index) => {
                 setTimeout(() => {
                     el.style.transition = 'all 0.5s ease';
-                    el.style.boxShadow = '0 0 0 2px rgba(212, 175, 55, 0.3)';
+                    el.style.backgroundColor = 'rgba(230, 0, 0, 0.12)';
                     setTimeout(() => {
-                        el.style.boxShadow = 'none';
-                    }, 1000);
+                        el.style.backgroundColor = 'rgba(230, 0, 0, 0.05)';
+                    }, 800);
                 }, 500 + (index * 300));
+            });
+            
+            // 为引文添加显示动画
+            const quote = document.querySelector('.quote');
+            if (quote) {
+                setTimeout(() => {
+                    quote.style.transition = 'all 0.8s ease';
+                    quote.style.boxShadow = '0 5px 25px rgba(0, 0, 0, 0.08)';
+                }, 1000);
+            }
+            
+            // 美术馆名称悬停效果增强
+            const galleryItems = document.querySelectorAll('.gallery-sidebar div, .art-sidebar div');
+            galleryItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    const name = this.querySelector('.gallery-name') || this.querySelector('.museum-name');
+                    if (name) {
+                        name.style.transition = 'color 0.3s ease';
+                    }
+                });
+            });
+            
+            // 添加打字机效果给第一段（可选）
+            const firstP = document.querySelector('.email-body p');
+            if (firstP && window.innerWidth > 768) {
+                const originalText = firstP.textContent;
+                firstP.textContent = '';
+                
+                let i = 0;
+                const typeWriter = () => {
+                    if (i < originalText.length) {
+                        firstP.textContent += originalText.charAt(i);
+                        i++;
+                        setTimeout(typeWriter, 30);
+                    }
+                };
+                
+                setTimeout(typeWriter, 800);
+            }
+            
+            // 浮动标签动画
+            const floatingLabels = document.querySelectorAll('.floating-label');
+            floatingLabels.forEach((label, index) => {
+                label.style.animationDelay = `${index * 3}s`;
+                label.style.opacity = '0.4';
+                
+                // 鼠标悬停时增强显示
+                label.addEventListener('mouseenter', () => {
+                    label.style.opacity = '1';
+                    label.style.color = '#e60000';
+                    label.style.fontWeight = '600';
+                });
+                
+                label.addEventListener('mouseleave', () => {
+                    label.style.opacity = '0.4';
+                    label.style.color = '#888';
+                    label.style.fontWeight = '400';
+                });
             });
         });
     </script>
