@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>紫藤画廊永久关闭，所有者称"身心俱疲" - 暮城晚报</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* 顶部导航栏 */
+        .top-bar {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 8px 0;
+            font-size: 0.9rem;
+            border-bottom: 1px solid #333;
+        }
+        
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .date-time {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .weather {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        /* 头部区域 */
+        header {
+            background-color: #fff;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: #c00;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: #1a1a1a;
+        }
+        
+        .logo .subtitle {
+            font-size: 0.9rem;
+            color: #666;
+            margin-left: 10px;
+            font-weight: normal;
+        }
+        
+        /* 导航菜单 */
+        nav {
+            background-color: #fff;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            position: relative;
+        }
+        
+        .nav-links a {
+            display: block;
+            padding: 15px 20px;
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #c00;
+            background-color: #f9f9f9;
+        }
+        
+        .nav-links .active a {
+            color: #c00;
+            border-bottom: 2px solid #c00;
+        }
+        
+        /* 主要内容区域 */
+        .main-content {
+            display: flex;
+            margin-top: 25px;
+            gap: 30px;
+        }
+        
+        .article-container {
+            flex: 3;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .sidebar {
+            flex: 1;
+        }
+        
+        /* 文章头部 */
+        .article-header {
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .article-title {
+            font-size: 2.2rem;
+            line-height: 1.3;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+        }
+        
+        .article-meta {
+            display: flex;
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+        
+        .article-meta div {
+            margin-right: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .article-meta i {
+            margin-right: 5px;
+        }
+        
+        .separator {
+            height: 1px;
+            background: repeating-linear-gradient(90deg, transparent, transparent 5px, #e0e0e0 5px, #e0e0e0 10px);
+            margin: 30px 0;
+        }
+        
+        /* 文章内容 */
+        .article-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .article-content h2 {
+            font-size: 1.5rem;
+            margin: 25px 0 15px;
+            color: #1a1a1a;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .article-content h3 {
+            font-size: 1.3rem;
+            margin: 20px 0 10px;
+            color: #333;
+        }
+        
+        .article-content p {
+            margin-bottom: 18px;
+            text-align: justify;
+        }
+        
+        .quote-box {
+            background-color: #f9f9f9;
+            border-left: 4px solid #c00;
+            padding: 20px;
+            margin: 25px 0;
+            font-style: italic;
+        }
+        
+        .event-list {
+            background-color: #f9f9f9;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 5px;
+        }
+        
+        .event-list li {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #ddd;
+        }
+        
+        .event-list li:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .highlight {
+            font-weight: bold;
+            color: #c00;
+        }
+        
+        /* 评论区 */
+        .comments-section {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+        }
+        
+        .comments-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .comments-title {
+            font-size: 1.4rem;
+            color: #1a1a1a;
+        }
+        
+        .comments-count {
+            font-size: 1.1rem;
+            color: #666;
+        }
+        
+        .comment-list {
+            margin-bottom: 30px;
+        }
+        
+        .comment-item {
+            padding: 20px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .comment-item:last-child {
+            border-bottom: none;
+        }
+        
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+        
+        .comment-author {
+            font-weight: bold;
+            color: #1a1a1a;
+            font-size: 1rem;
+        }
+        
+        .comment-time {
+            font-size: 0.85rem;
+            color: #999;
+        }
+        
+        .comment-content {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        .write-comment {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .write-comment h3 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .comment-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            margin-bottom: 15px;
+            min-height: 80px;
+            resize: vertical;
+            font-family: inherit;
+        }
+        
+        .comment-input:focus {
+            outline: none;
+            border-color: #c00;
+        }
+        
+        .comment-submit {
+            background-color: #c00;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            float: right;
+        }
+        
+        .comment-submit:hover {
+            background-color: #a00;
+        }
+        
+        /* 侧边栏 */
+        .sidebar-widget {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .widget-title {
+            font-size: 1.2rem;
+            color: #1a1a1a;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+        
+        .widget-title i {
+            margin-right: 8px;
+            color: #c00;
+        }
+        
+        .hot-articles ul, .recommendations ul {
+            list-style: none;
+        }
+        
+        .hot-articles li, .recommendations li {
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .hot-articles li:last-child, .recommendations li:last-child {
+            border-bottom: none;
+        }
+        
+        .hot-articles a, .recommendations a {
+            color: #333;
+            text-decoration: none;
+            display: block;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+        
+        .hot-articles a:hover, .recommendations a:hover {
+            color: #c00;
+        }
+        
+        .hot-articles .hot-tag {
+            background-color: #c00;
+            color: white;
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            border-radius: 3px;
+            margin-right: 8px;
+        }
+        
+        /* 投票区域样式 */
+        .vote-option {
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            color: #666;
+            border: none;
+            padding: 8px 15px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .vote-option:hover {
+            background-color: #e9e9e9;
+        }
+        
+        .vote-option.selected {
+            background-color: #c00;
+            color: white;
+        }
+        
+        .vote-options {
+            margin-bottom: 15px;
+        }
+        
+        .vote-submit {
+            background-color: #666;
+            color: white;
+            border: none;
+            padding: 8px 25px;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+        
+        .vote-submit:hover {
+            background-color: #555;
+        }
+        
+        .vote-submit.enabled {
+            background-color: #c00;
+        }
+        
+        .vote-submit.enabled:hover {
+            background-color: #a00;
+        }
+        
+        /* 底部区域 */
+        footer {
+            background-color: #1a1a1a;
+            color: #aaa;
+            padding: 40px 0 20px;
+            margin-top: 50px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 25px;
+        }
+        
+        .footer-title {
+            color: #fff;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #333;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+        
+        .footer-links a:hover {
+            color: #fff;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            width: 36px;
+            height: 36px;
+            background-color: #333;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 36px;
+            color: #fff;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+        
+        .social-icons a:hover {
+            background-color: #c00;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            margin-top: 20px;
+            border-top: 1px solid #333;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .main-content {
+                flex-direction: column;
+            }
+            
+            .nav-links a {
+                padding: 12px 15px;
+            }
+            
+            .article-title {
+                font-size: 1.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .article-container {
+                padding: 20px;
+            }
+            
+            .article-title {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部栏 -->
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <div class="date-time">
+                <div class="weather">
+                    <i class="fas fa-cloud-sun"></i>
+                    <span>晴 3°C~12°C</span>
+                </div>
+            </div>
+            <div class="user-actions">
+                <a href="#" style="color: #fff; text-decoration: none; margin-right: 15px;">登录</a>
+                <a href="#" style="color: #fff; text-decoration: none;">订阅</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 头部区域 -->
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">
+                暮城晚报<span class="subtitle">Mùchéng Evening News</span>
+            </a>
+        </div>
+    </header>
+    
+    <!-- 导航菜单 -->
+    <nav>
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="javascript:void(0)">首页</a></li>
+                <li><a href="javascript:void(0)">时政</a></li>
+                <li><a href="javascript:void(0)">经济</a></li>
+                <li class="active"><a href="javascript:void(0)">文化</a></li>
+                <li><a href="javascript:void(0)">社会</a></li>
+                <li><a href="javascript:void(0)">科技</a></li>
+                <li><a href="javascript:void(0)">体育</a></li>
+                <li><a href="javascript:void(0)">娱乐</a></li>
+                <li><a href="javascript:void(0)">生活</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- 主要内容区域 -->
+    <div class="container main-content">
+        <!-- 文章容器 -->
+        <div class="article-container">
+            <div class="article-header">
+                <h1 class="article-title">紫藤画廊永久关闭，所有者称"身心俱疲"</h1>
+                <div class="article-meta">
+                    <div><i class="fas fa-user"></i> 本报记者 周明 报道</div>
+                    <div><i class="far fa-clock"></i> 2010年10月6日 星期三</div>
+                    <div><i class="fas fa-eye"></i> 阅读 125430</div>
+                    <div><i class="fas fa-comments"></i> 评论 342</div>
+                </div>
+            </div>
+            
+            <div class="separator"></div>
+            
+            <div class="article-content">
+                <p><strong>昨日（10月5日）下午，位于梧桐区紫藤街18号的紫藤画廊正式发布停业公告。这一决定紧随10月3日下午发生的参观者猝死事件之后，为该画廊今年以来的第三起与参观者相关的死亡事件。</strong></p>
+                
+                <h2>事件回顾：观展过程中突发急病</h2>
+                <p>10月3日15时45分至16时45分期间，57岁的市民李秀兰女士在紫藤画廊第七展厅内突发不适，随后昏倒在地。画廊工作人员立即拨打急救电话，医护人员于数分钟内抵达现场并进行抢救，但李女士最终不治。警方初步调查显示，死者为心脏骤停猝死，现场无打斗、破坏痕迹，亦无他人侵害迹象。据悉，李女士生前确有心脏病史。</p>
+                
+                <h2>画廊所有者声明：心力交瘁，决定歇业</h2>
+                <div class="quote-box">
+                    "自今年年初以来，紫藤画廊先后发生多起参观者突发健康事件，尽管每次警方与医疗部门调查均表明，事件与画廊环境及运营无直接关联，均为参观者自身健康原因导致，但作为画廊的创办者与运营者，我本人及团队在情感与心理上已承受巨大压力。<br><br>
+                    我们曾多次邀请专业机构进行环境与安全检测，所有报告均符合公共场所规范。然而，当艺术场所反复与不幸事件相连，继续维持开放已失去原本的意义。<br><br>
+                    经过慎重考虑，我决定于2010年10月5日起永久关闭紫藤画廊。对所有支持过我们的艺术界同仁、参观者及合作伙伴表示衷心感谢，也对逝者及其家属致以最深切的哀悼。<br><br>
+                    身心俱疲，唯有告别。<br><br>
+                    ------林慕云 2010年10月5日"
+                </div>
+                
+                <h2>今年内已发生三起相关事件</h2>
+                <p>根据公开信息整理，今年以来紫藤画廊共发生三起参观者死亡事件：</p>
+                
+                <div class="event-list">
+                    <ul>
+                        <li><span class="highlight">2010年3月24日，陈明远先生（42岁）</span> 于参观画廊数日后，于家中因心脏衰竭去世。其妻在整理遗物时，发现一张紫藤画廊门票，票根背面有陈先生颤抖手迹："它看见我了......我走不掉了。"</li>
+                        <li><span class="highlight">2010年5月17日，王建平先生（39岁）</span> 于家中浴室溺亡，水深仅约3厘米。警方调查发现，其手机相册中最后一张照片为画廊第七幅肖像的瞳孔局部极端放大特写。据其朋友回忆，王先生生前曾表示"那幅画在对他说话"，但当时仅被亲友视为比喻。</li>
+                        <li><span class="highlight">2010年10月22日，李秀兰女士（57岁）</span> 于画廊第七展厅内突发心脏骤停猝死。监控录像显示，她在肖像前静止站立长达23分钟，嘴唇微动，倒下瞬间展厅灯光出现异常闪烁。</li>
+                    </ul>
+                </div>
+                
+                <p>据悉，上述事件中，死者均有不同程度的心脏病史，且死前均曾长时间凝视同一幅肖像作品。警方与医疗部门认定死亡原因为自身疾病突发所致，与画廊环境无直接关联。</p>
+                
+                <h2>艺术界反应：遗憾与不解并存</h2>
+                <p>紫藤画廊自2008年开业以来，以"古典油画的当代诠释"为定位，吸引了一批对早期肖像画有浓厚兴趣的观众。闭馆消息传出后，本地部分艺术家与策展人表示遗憾。</p>
+                <p>独立策展人吴文景表示："紫藤画廊的展览往往带有强烈的学术气质，尤其是对19世纪肖像画的视觉重构，具有独特的策展视角。连续发生这样的悲剧，实在令人难以理解，也令人惋惜。"</p>
+                
+                <h2>后续安排</h2>
+                <p>画廊所在建筑为私人产权，目前暂无明确的改造或转用计划。馆内藏品将由林慕云女士自行处理，部分作品或捐赠予艺术研究机构。</p>
+                
+                <div class="separator"></div>
+                
+                <p><em>（本报将持续关注事件后续进展）</em></p>
+                
+                <!-- 评论区 -->
+                <div class="comments-section">
+                    <div class="comments-header">
+                        <h2 class="comments-title">网友评论</h2>
+                        <div class="comments-count">共9条评论</div>
+                    </div>
+                    
+                    <div class="comment-list">
+                        <!-- 评论1 -->
+                        <div class="comment-item">
+                            <div class="comment-header">
+                                <div class="comment-author">风过无痕</div>
+                                <div class="comment-time">发布时间：2010-10-06 09:32</div>
+                            </div>
+                            <div class="comment-content">
+                                三个人都是看过同一幅画后出事的，这也太巧合了吧？
+                            </div>
+                        </div>
+                        
+                        <!-- 评论2 -->
+                        <div class="comment-item">
+                            <div class="comment-header">
+                                <div class="comment-author">望望</div>
+                                <div class="comment-time">发布时间：2010-10-06 10:05</div>
+                            </div>
+                            <div class="comment-content">
+                                我参观过那个展览，《窗边的侧影》确实有种让人不安的感觉。现在想起来都有点后怕。
+                            </div>
+                        </div>
+                        
+                        <!-- 评论3 -->
+                        <div class="comment-item">
+                            <div class="comment-header">
+                                <div class="comment-author">远处的三水工</div>
+                                <div class="comment-time">发布时间：2010-10-06 10:28</div>
+                            </div>
+                            <div class="comment-content">
+                                听说那幅画是19世纪流传下来的，每个主人都不得善终。紫藤画廊不该修复它的，这是百年诅咒画作索命！
+                            </div>
+                        </div>
+                        
+                        <!-- 评论4 -->
+                        <div class="comment-item">
+                            <div class="comment-header">
+                                <div class="comment-author">梧桐老街坊</div>
+                                <div class="comment-time">发布时间：2010-10-06 11:12</div>
+                            </div>
+                            <div class="comment-content">
+                                林慕云是个好人，以前经常来我们店里买画材。发生这种事她肯定很难过。
+                            </div>
+                        </div>
+                        
+                        <!-- 评论5 -->
+                        <div class="comment-item">
+                            <div class="comment-header">
+                                <div class="comment-author">16599588</div>
+                                <div class="comment-time">发布时间：2010-10-06 13:05</div>
+                            </div>
+                            <div class="comment-content">
+                                可惜了这么好的画廊，他们的策展眼光真的很独特。
+                            </div>
+                        </div>
+                        
+                        <!-- 评论6 -->
+                        <div class="comment-item">
+                            <div class="comment-header">
+                                <div class="comment-author">相信科学</div>
+                                <div class="comment-time">发布时间：2010-10-06 13:42</div>
+                            </div>
+                            <div class="comment-content">
+                                会不会是什么心理暗示或者催眠效应。
+                            </div>
+                        </div>
+                        
+                        <!-- 评论7 -->
+                        <div class="comment-item">
+                            <div class="comment-header">
+                                <div class="comment-author">麻辣烫</div>
+                                <div class="comment-time">发布时间：2010-10-06 14:18</div>
+                            </div>
+                            <div class="comment-content">
+                                票根上那句"它看见我了……我走不掉了"看得我脊背发凉。
+                            </div>
+                        </div>
+                        
+                        <!-- 评论8 -->
+                        <div class="comment-item">
+                            <div class="comment-header">
+                                <div class="comment-author">爱吃土豆的鼠鼠</div>
+                                <div class="comment-time">发布时间：2010-10-06 14:50</div>
+                            </div>
+                            <div class="comment-content">
+                                为什么都是心脏问题？为什么都是同一幅画？警方真的调查清楚了吗？
+                            </div>
+                        </div>
+                        
+                        <!-- 评论9 -->
+                        <div class="comment-item">
+                            <div class="comment-header">
+                                <div class="comment-author">通灵者</div>
+                                <div class="comment-time">发布时间：2010-10-06 18:25</div>
+                            </div>
+                            <div class="comment-content">
+                                这可能会成为新的都市传说——"第七幅肖像的诅咒"
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 写评论区域 -->
+                    <div class="write-comment">
+                        <h3>发表评论</h3>
+                        <textarea class="comment-input" placeholder="请输入您的评论..."></textarea>
+                        <button class="comment-submit">发表评论</button>
+                        <div style="clear: both;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 侧边栏 -->
+        <div class="sidebar">
+            <!-- 热门文章 -->
+            <div class="sidebar-widget hot-articles">
+                <h3 class="widget-title"><i class="fas fa-fire"></i> 热门文章</h3>
+                <ul>
+                    <li><span class="hot-tag">热</span><a href="javascript:void(0)">菠萝侦探又破密室杀人案，凶手被绳之以法</a></li>
+                    <li><span class="hot-tag">热</span><a href="javascript:void(0)">冰激凌红茶做法，超好喝！</a></li>
+                    <li><a href="javascript:void(0)">憨猫家长：这种呆傻的孩子都长一个样</a></li>
+                    <li><a href="javascript:void(0)">某L姓男子花重金寻找黑色笔记本</a></li>
+                    <li><a href="javascript:void(0)">紫藤画廊事件后续：艺术品去向引发关注</a></li>
+                </ul>
+            </div>
+            
+            <!-- 热门推荐 -->
+            <div class="sidebar-widget recommendations">
+                <h3 class="widget-title"><i class="fas fa-star"></i> 热门推荐</h3>
+                <ul>
+                    <li><a href="javascript:void(0)"><strong>[相关]</strong> 紫藤画廊今年3月至10月曾举办《窗内与窗外的古典肖像》特展</a></li>
+                    <li><a href="javascript:void(0)"><strong>[游戏]</strong> 丝之鸽发售即登顶！首周销量引爆全网狂欢</a></li>
+                    <li><a href="javascript:void(0)"><strong>[八卦]</strong> 某女子泡温泉时遭人偷窥 该女子表示已将偷窥者当球踢</a></li>
+                </ul>
+            </div>
+            
+            <!-- 读者互动 -->
+            <div class="sidebar-widget">
+                <h3 class="widget-title"><i class="fas fa-comment-dots"></i> 读者互动</h3>
+                <p style="margin-bottom: 15px;">您对紫藤画廊关闭怎么看？</p>
+                
+                <div class="vote-options">
+                    <button class="vote-option" data-value="support">理解并支持</button>
+                    <button class="vote-option" data-value="regret">感到遗憾</button>
+                    <button class="vote-option" data-value="investigate">有待更多调查</button>
+                </div>
+                
+                <button id="vote-submit" class="vote-submit" disabled>确认提交选择</button>
+                <p id="vote-count" style="margin-top: 15px; font-size: 0.9rem; color: #666;">已有342人参与投票</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 底部区域 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4 class="footer-title">关于我们</h4>
+                    <ul class="footer-links">
+                        <li><a href="javascript:void(0)">报社简介</a></li>
+                        <li><a href="javascript:void(0)">联系我们</a></li>
+                        <li><a href="javascript:void(0)">招聘信息</a></li>
+                        <li><a href="javascript:void(0)">广告服务</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">法律声明</h4>
+                    <ul class="footer-links">
+                        <li><a href="javascript:void(0)">用户协议</a></li>
+                        <li><a href="javascript:void(0)">隐私政策</a></li>
+                        <li><a href="javascript:void(0)">版权声明</a></li>
+                        <li><a href="javascript:void(0)">免责条款</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">关注我们</h4>
+                    <p style="margin-bottom: 15px;">获取最新新闻资讯</p>
+                    <div class="social-icons">
+                        <a href="javascript:void(0)"><i class="fab fa-weixin"></i></a>
+                        <a href="javascript:void(0)"><i class="fab fa-weibo"></i></a>
+                        <a href="javascript:void(0)"><i class="fab fa-qq"></i></a>
+                        <a href="javascript:void(0)"><i class="fas fa-rss"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">客户端下载</h4>
+                    <p style="margin-bottom: 15px;">下载暮城晚报客户端，随时随地看新闻</p>
+                    <button style="background-color: #c00; color: white; border: none; padding: 10px 15px; border-radius: 4px; cursor: pointer;">立即下载</button>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>Copyright © 2010-2026 暮城晚报社 版权所有 | 互联网新闻信息服务许可证：XXXXXX | 增值电信业务经营许可证：XXXXXX</p>
+                <p>地址：暮城市中山路123号 | 电话：400-123-4567 | 违法和不良信息举报电话：400-123-4567</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // 为阅读数增加动态效果
+        let views = 125430;
+        const viewsElement = document.querySelector('.fa-eye').parentElement;
+        
+        // 模拟阅读数增加
+        setInterval(() => {
+            views += Math.floor(Math.random() * 5);
+            viewsElement.innerHTML = `<i class="fas fa-eye"></i> 阅读 ${views.toLocaleString()}`;
+        }, 10000);
+        
+        // 投票功能
+        const voteOptions = document.querySelectorAll('.vote-option');
+        const voteSubmitBtn = document.getElementById('vote-submit');
+        const voteCountElement = document.getElementById('vote-count');
+        
+        let voteCount = 342;
+        let hasVoted = false;
+        let selectedOption = null;
+        
+        // 投票选项点击事件
+        voteOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                if (hasVoted) {
+                    alert('您已经投过票了，每人只能投票一次！');
+                    return;
+                }
+                
+                // 移除所有选项的选中状态
+                voteOptions.forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                
+                // 添加当前选项的选中状态
+                this.classList.add('selected');
+                selectedOption = this.getAttribute('data-value');
+                
+                // 启用提交按钮
+                voteSubmitBtn.disabled = false;
+                voteSubmitBtn.classList.add('enabled');
+            });
+        });
+        
+        // 提交投票
+        voteSubmitBtn.addEventListener('click', function() {
+            if (hasVoted) {
+                alert('您已经投过票了，每人只能投票一次！');
+                return;
+            }
+            
+            if (!selectedOption) {
+                alert('请先选择一个选项！');
+                return;
+            }
+            
+            // 更新投票人数 - 每次只加1
+            voteCount += 1;
+            voteCountElement.textContent = `已有${voteCount}人参与投票`;
+            
+            // 禁用所有选项和提交按钮
+            voteOptions.forEach(opt => {
+                opt.style.cursor = 'not-allowed';
+                opt.disabled = true;
+            });
+            
+            voteSubmitBtn.disabled = true;
+            voteSubmitBtn.textContent = '已提交';
+            voteSubmitBtn.style.cursor = 'not-allowed';
+            voteSubmitBtn.classList.remove('enabled');
+            
+            hasVoted = true;
+            
+            // 显示投票成功提示
+            alert('感谢您的投票！');
+        });
+        
+        // 防止链接跳转
+        document.querySelectorAll('a[href="javascript:void(0)"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                // 这里什么都不做，链接点击后没有任何反应
+            });
+        });
+        
+        // 评论功能
+        const commentSubmitBtn = document.querySelector('.comment-submit');
+        const commentInput = document.querySelector('.comment-input');
+        const commentList = document.querySelector('.comment-list');
+        const commentsCountElement = document.querySelector('.comments-count');
+        
+        // 模拟评论提交
+        commentSubmitBtn.addEventListener('click', function() {
+            const commentText = commentInput.value.trim();
+            
+            if (!commentText) {
+                alert('请输入评论内容！');
+                return;
+            }
+            
+            if (commentText.length < 5) {
+                alert('评论内容太短了，请至少输入5个字符！');
+                return;
+            }
+            
+            // 创建新的评论元素
+            const newComment = document.createElement('div');
+            newComment.className = 'comment-item';
+            newComment.innerHTML = `
+                <div class="comment-header">
+                    <div class="comment-author">匿名用户</div>
+                    <div class="comment-time">发布时间：刚刚</div>
+                </div>
+                <div class="comment-content">
+                    ${commentText}
+                </div>
+            `;
+            
+            // 添加到评论列表顶部
+            commentList.prepend(newComment);
+            
+            // 清空输入框
+            commentInput.value = '';
+            
+            // 更新评论数量
+            const currentCountText = commentsCountElement.textContent;
+            const currentCount = parseInt(currentCountText.replace('共', '').replace('条评论', ''));
+            commentsCountElement.textContent = `共${currentCount + 1}条评论`;
+            
+            // 提示提交成功
+            alert('评论发表成功！');
+        });
+    </script>
+</body>
+</html>
