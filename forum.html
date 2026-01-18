@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>艺海拾疑 · 艺术交流论坛</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: #f0f2f5;
+            color: #333;
+            font-family: Arial, Helvetica, 'Microsoft YaHei', sans-serif;
+            line-height: 1.5;
+            font-size: 14px;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .container {
+            width: 1000px;
+            margin: 0 auto;
+            background-color: #fff;
+            min-height: 100vh;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        /* 顶部导航 */
+        .header {
+            background-color: #4267b2;
+            color: white;
+            padding: 12px 20px;
+            border-bottom: 1px solid #29487d;
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .user-info {
+            font-size: 13px;
+            color: #e0e0e0;
+        }
+        
+        .nav {
+            display: flex;
+            gap: 25px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 10px;
+        }
+        
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        .nav a:hover {
+            text-decoration: underline;
+        }
+        
+        .nav a.active {
+            font-weight: bold;
+        }
+        
+        /* 搜索区域 */
+        .search-area {
+            background-color: #f6f7f9;
+            border-bottom: 1px solid #dddfe2;
+            padding: 15px 20px;
+        }
+        
+        .search-form {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .search-label {
+            font-size: 14px;
+            color: #606770;
+            white-space: nowrap;
+        }
+        
+        .search-input {
+            flex: 1;
+            padding: 8px 12px;
+            border: 1px solid #ccd0d5;
+            border-radius: 0;
+            font-size: 14px;
+            max-width: 300px;
+        }
+        
+        .search-btn {
+            padding: 8px 15px;
+            background-color: #f5f6f7;
+            border: 1px solid #ccd0d5;
+            color: #4b4f56;
+            cursor: pointer;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+        
+        .search-btn:hover {
+            background-color: #ebedf0;
+        }
+        
+        .search-results {
+            margin-top: 15px;
+            background-color: white;
+            border: 1px solid #dddfe2;
+            padding: 15px;
+            display: none;
+        }
+        
+        .result-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #1c1e21;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+        }
+        
+        .result-item {
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f2f5;
+        }
+        
+        .result-item:last-child {
+            border-bottom: none;
+        }
+        
+        .result-link {
+            color: #385898;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        .result-link:hover {
+            text-decoration: underline;
+        }
+        
+        /* 主内容区 */
+        .main-content {
+            padding: 20px;
+        }
+        
+        .page-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #1c1e21;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #dddfe2;
+        }
+        
+        .forum-notice {
+            background-color: #f0f8ff;
+            border: 1px solid #b3d4fc;
+            padding: 15px;
+            margin-bottom: 20px;
+            font-size: 13px;
+        }
+        
+        .notice-title {
+            font-weight: bold;
+            color: #1c1e21;
+            margin-bottom: 5px;
+        }
+        
+        .notice-meta {
+            color: #65676b;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+        
+        /* 帖子区域 */
+        .post {
+            margin-bottom: 25px;
+            border: 1px solid #dddfe2;
+            background-color: #fff;
+        }
+        
+        .post-header {
+            background-color: #f5f6f7;
+            padding: 12px 15px;
+            border-bottom: 1px solid #dddfe2;
+        }
+        
+        .post-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #1c1e21;
+            margin-bottom: 5px;
+        }
+        
+        .post-meta {
+            font-size: 12px;
+            color: #65676b;
+        }
+        
+        .post-body {
+            padding: 15px;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #1c1e21;
+        }
+        
+        .post-body p {
+            margin-bottom: 10px;
+        }
+        
+        .comments {
+            background-color: #fafbfc;
+            border-top: 1px solid #dddfe2;
+            padding: 15px;
+        }
+        
+        .comment {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e9ebee;
+        }
+        
+        .comment:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .comment-meta {
+            font-size: 12px;
+            color: #65676b;
+            margin-bottom: 8px;
+        }
+        
+        .comment-author {
+            color: #385898;
+            font-weight: bold;
+        }
+        
+        .comment-time {
+            color: #8a8d91;
+            margin-left: 10px;
+        }
+        
+        .comment-content {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #1c1e21;
+        }
+        
+        hr {
+            border: none;
+            border-top: 1px solid #dddfe2;
+            margin: 25px 0;
+        }
+        
+        /* 页脚 */
+        .footer {
+            background-color: #f5f6f7;
+            border-top: 1px solid #dddfe2;
+            padding: 15px 20px;
+            font-size: 12px;
+            color: #8a8d91;
+            text-align: center;
+        }
+        
+        /* 响应式 */
+        @media (max-width: 1020px) {
+            .container {
+                width: 100%;
+                box-shadow: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .main-content {
+                padding: 15px;
+            }
+            
+            .search-form {
+                flex-wrap: wrap;
+            }
+            
+            .search-input {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 顶部导航 -->
+        <div class="header">
+            <div class="header-top">
+                <a href="#" class="logo">艺海拾疑 · 艺术交流论坛</a>
+                <div class="user-info"></div>
+            </div>
+            <div class="nav">
+                <a href="#" class="active">热门讨论区</a>
+                <a href="#">艺术鉴定</a>
+                <a href="#">材料研究</a>
+                <a href="#">历史档案</a>
+                <a href="#">传闻轶事</a>
+                <a href="#">关于论坛</a>
+            </div>
+        </div>
+        
+        <!-- 搜索区域 -->
+        <div class="search-area">
+            <div class="search-form">
+                <div class="search-label">搜索论坛：</div>
+                <input type="text" class="search-input" id="search-input" placeholder="输入关键词">
+                <button class="search-btn" id="search-btn">搜索</button>
+            </div>
+            
+            <div class="search-results" id="search-results">
+                <div class="result-title">搜索结果</div>
+                <div id="results-container"></div>
+            </div>
+        </div>
+        
+        <!-- 主内容区 -->
+        <div class="main-content">
+            <div class="page-title">热门讨论区 | 艺术与传闻交汇之地</div>
+            
+            <!-- 论坛公告 -->
+            <div class="forum-notice">
+                <div class="notice-title">【置顶】论坛须知</div>
+                <div class="notice-meta">管理员 于 2012-11-03 22:15:22 发布</div>
+                <div>本板块为历史数据备份，部分内容涉及未证实传言，请理性讨论。</div>
+            </div>
+            
+            <!-- 帖子1 -->
+            <div class="post">
+                <div class="post-header">
+                    <div class="post-title">紫藤画廊的第七幅肖像真的有问题吗？</div>
+                    <div class="post-meta">发帖人：夜游画室 · 时间：2010-03-28 14:32:11</div>
+                </div>
+                <div class="post-body">
+                    <p>上周去看了紫藤画廊的"城市肖像"展，其他六幅都很正常，唯独第七幅......</p>
+                    <p>我在那幅画前站了大概十分钟，突然觉得心跳得特别快，呼吸不过来，赶紧出去了。</p>
+                    <p>我朋友说我当时脸色惨白，我自己也觉得莫名其妙。</p>
+                    <p>有人有类似经历吗？</p>
+                </div>
+                <div class="comments">
+                    <div class="comment">
+                        <div class="comment-meta">
+                            <span class="comment-author">调色刀</span>
+                            <span class="comment-time">2010-03-28 15:20:05</span>
+                        </div>
+                        <div class="comment-content">
+                            你不是一个人。我三个月前去的时候，也有类似的感觉，回去之后一直做梦。好几次梦见自己站在那幅画前，但画里的人物却转过头来盯着我看。
+                        </div>
+                    </div>
+                    
+                    <div class="comment">
+                        <div class="comment-meta">
+                            <span class="comment-author">匿名游客</span>
+                            <span class="comment-time">2010-03-29 09:11:34</span>
+                        </div>
+                        <div class="comment-content">
+                            我上个月和朋友一起去的。她完全没事，我却从进展厅开始就觉得压抑。之后几天一直耳鸣，左边耳朵里总有细微的说话声，但听不清内容。我去看了医生，听力一切正常。我不知道是不是自己想多了，但我再也不敢去那个展厅了。
+                        </div>
+                    </div>
+                    
+                    <div class="comment">
+                        <div class="comment-meta">
+                            <span class="comment-author">嘎啦嘛</span>
+                            <span class="comment-time">2010-04-01 10:28:30</span>
+                        </div>
+                        <div class="comment-content">
+                            我太太本来就身体弱，我们去看展那天，她在第七幅画前站了不到五分钟，突然说胸口发闷、头晕，我赶紧扶她出去透气。
+                        </div>
+                    </div>
+                    
+                    <div class="comment">
+                        <div class="comment-meta">
+                            <span class="comment-author">路过群众</span>
+                            <span class="comment-time">2010-04-02 14:15:09</span>
+                        </div>
+                        <div class="comment-content">
+                            我不确定该不该说......我舅舅是市警局的，他私下提过，那三位去世的参观者在事发前都曾向亲友提过"画里的人好像眨眼了""画框周围有影子蠕动"之类的话。
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <!-- 帖子2 -->
+            <div class="post">
+                <div class="post-header">
+                    <div class="post-title">柯罗《晨光中的树林》最近在拍吗？</div>
+                    <div class="post-meta">发帖人：风景画爱好者 · 时间：2010-03-25 09:12:33</div>
+                </div>
+                <div class="post-body">
+                    <p>听说芙酥比下个月有一批19世纪法国风景画上拍，有没有人知道具体目录？</p>
+                    <p>特别想找柯罗的小幅写生，之前错过一次后悔到现在。</p>
+                </div>
+                <div class="comments">
+                    <div class="comment">
+                        <div class="comment-meta">
+                            <span class="comment-author">拍卖通</span>
+                            <span class="comment-time">2010-03-25 10:05:18</span>
+                        </div>
+                        <div class="comment-content">
+                            目录还没公开，但内部消息说这次有柯罗的《枫丹白露的橡树》，尺寸不大，预估80-120万欧元。不过品相一般，有轻微龟裂。
+                        </div>
+                    </div>
+                    
+                    <div class="comment">
+                        <div class="comment-meta">
+                            <span class="comment-author">修复师小李</span>
+                            <span class="comment-time">2010-03-25 14:20:55</span>
+                        </div>
+                        <div class="comment-content">
+                            如果是伦敦那幅的话，我三年前见过实物。背面有加固衬布，应该是20世纪初处理过的。
+                        </div>
+                    </div>
+                    
+                    <div class="comment">
+                        <div class="comment-meta">
+                            <span class="comment-author">风景画爱好者</span>
+                            <span class="comment-time">2010-03-26 08:30:42</span>
+                        </div>
+                        <div class="comment-content">
+                            谢谢各位！看来得准备去趟伦敦了。
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <!-- 帖子3 -->
+            <div class="post">
+                <div class="post-header">
+                    <div class="post-title">求鉴定：这幅明清绢本山水是真迹吗？</div>
+                    <div class="post-meta">发帖人：古画新手 · 时间：2010-03-30 11:45:22</div>
+                </div>
+                <div class="post-body">
+                    <p>家里长辈留下一幅山水，说是明清时期佚名作品。</p>
+                    <p>上传了局部细节图，请大家帮忙看看绢丝质地、墨色浓淡和皴法特点。</p>
+                    <p>特别是右下角那个模糊的收藏印，有人认得吗？</p>
+                </div>
+                <div class="comments">
+                    <div class="comment">
+                        <div class="comment-meta">
+                            <span class="comment-author">书画鉴定张</span>
+                            <span class="comment-time">2010-03-30 13:20:15</span>
+                        </div>
+                        <div class="comment-content">
+                            绢是明清时期常见的双丝绢，墨色沉稳，但皴法风格有点杂------既有北派常见的斧劈皴笔意，又带了些南派的细笔皴擦。<br>
+                            那个印章字形有点像"清赏"或"清玩"，但磨损太严重。建议可以尝试做红外扫描或高清透光拍摄，看看有没有隐藏的底款或衬纸信息。
+                        </div>
+                    </div>
+                    
+                    <div class="comment">
+                        <div class="comment-meta">
+                            <span class="comment-author">印谱研究者</span>
+                            <span class="comment-time">2010-03-31 09:33:41</span>
+                        </div>
+                        <div class="comment-content">
+                            印章我查了几个明清收藏家的印谱，字形结构有点像晚明"墨林山房"或清初"静观堂"的白文印变体，但细节对不上。<br>
+                            这类佚名山水如果流传有序，背面衬纸上有时会有装裱记录或收藏编号，可以留意一下裱边和天地头有没有细微的标注或夹条。
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <!-- 帖子4 -->
+            <div class="post">
+                <div class="post-header">
+                    <div class="post-title">寻找《窗边的忏悔者》——一幅消失的维多利亚时期肖像</div>
+                    <div class="post-meta">发帖人：油画侦探 · 时间：2010-01-12 10:45:22</div>
+                </div>
+                <div class="post-body">
+                    <p>最近在整理19世纪末英国肖像画资料，偶然发现一幅几乎被遗忘的作品：</p>
+                    <p><strong>《窗边的忏悔者》（The Confessor by the Window）</strong></p>
+                    <p>画家署名 J. H. （可能是 John Harland？），创作于1888年。</p>
+                    <br>
+                    <p>已知线索：</p>
+                    <p>- 1900年在伦敦小规模展出过，评论文称"画面充满令人不安的寂静"</p>
+                    <p>- 1905年被一位英国收藏家捐赠给圣玛丽亚教堂</p>
+                    <p>- 同年教堂发生火灾，画作据说被烧毁</p>
+                    <p>- 但1920年代有传言称画作出现在黑市，之后下落不明</p>
+                    <br>
+                    <p>有没有同好见过这幅画或相关资料？总觉得它的消失有点蹊跷。</p>
+                </div>
+                <div class="comments">
+                    <div class="comment">
+                        <div class="comment-meta">
+                            <span class="comment-author">古典艺术迷</span>
+                            <span class="comment-time">2010-01-12 11:30:18</span>
+                        </div>
+                        <div class="comment-content">
+                            我对这幅画有印象！《维多利亚时代隐秘肖像》这本书里提过一句，说它的色调处理非常特别！
+                        </div>
+                    </div>
+                    
+                    <div class="comment">
+                        <div class="comment-meta">
+                            <span class="comment-author">教堂档案员</span>
+                            <span class="comment-time">2010-01-13 08:15:09</span>
+                        </div>
+                        <div class="comment-content">
+                            圣玛丽亚教堂的火灾记录我查过，当时抢救出来的物品清单里没有这幅画。
+                        </div>
+                    </div>
+                    
+                    <div class="comment">
+                        <div class="comment-meta">
+                            <span class="comment-author">匿名</span>
+                            <span class="comment-time">2010-01-15 23:44:02</span>
+                        </div>
+                        <div class="comment-content">
+                            小声说，我爷爷以前在古董行干活，他说过有些画"不能挂"，尤其是那种人物眼睛画得太生动的。不知道是不是跟这幅有关。
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <!-- 帖子5 -->
+            <div class="post">
+                <div class="post-header">
+                    <div class="post-title">威尼斯红颜料现在还有传统配方吗？</div>
+                    <div class="post-meta">发帖人：材料研究者 · 时间：2010-04-01 16:20:33</div>
+                </div>
+                <div class="post-body">
+                    <p>在做文艺复兴颜料复原研究，发现现代"威尼斯红"和16世纪配方差异很大。</p>
+                    <p>现在哪里还能找到按古法制作的供应商？或者有没有人自己尝试过？</p>
+                </div>
+                <div class="comments">
+                    <div class="comment">
+                        <div class="comment-meta">
+                            <span class="comment-author">颜料工匠</span>
+                            <span class="comment-time">2010-04-02 08:45:12</span>
+                        </div>
+                        <div class="comment-content">
+                            我在托斯卡纳有个小作坊还在做，一年产量不到50公斤，关键是现代工厂为了效率都简化了。
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <!-- 帖子6 -->
+            <div class="post">
+                <div class="post-header">
+                    <div class="post-title">古典布光在当代肖像摄影中的应用</div>
+                    <div class="post-meta">发帖人：光影捕手 · 时间：2010-04-03 14:22:10</div>
+                </div>
+                <div class="post-body">
+                    <p>最近在尝试用经典三角布光法拍摄人像，发现主光位置和人物面部角度关系很大。</p>
+                    <p>总阴影过渡不太自然，特别是鼻影和颧骨阴影的连接处。</p>
+                </div>
+                <div class="comments">
+                    <div class="comment">
+                        <div class="comment-meta">
+                            <span class="comment-author">摄影老手</span>
+                            <span class="comment-time">2010-04-03 15:30:18</span>
+                        </div>
+                        <div class="comment-content">
+                            估计是主光位置偏高了，导致眼睛下半部分阴影过重。<br>
+                            这种布光的精髓在于，即使处于暗部的那侧脸颊和眼睛，也应该保留微弱的层次与反光。
+                        </div>
+                    </div>
+                    
+                    <div class="comment">
+                        <div class="comment-meta">
+                            <span class="comment-author">美术生跨界</span>
+                            <span class="comment-time">2010-04-04 11:05:42</span>
+                        </div>
+                        <div class="comment-content">
+                            其实可以参考一些古典油画的光影处理，尤其是17世纪前后的肖像作品，暗部常常会加入微妙的暖色反光。<br>
+                            可能你的灯光色温偏冷，整体显得有些"平面"，可以尝试混合少许暖光来增强立体与呼吸感。
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <!-- 帖子7 -->
+            <div class="post">
+                <div class="post-header">
+                    <div class="post-title">圣玛丽亚教堂火灾的老报纸报道</div>
+                    <div class="post-meta">发帖人：历史碎片 · 时间：2009-11-17 20:33:44</div>
+                </div>
+                <div class="post-body">
+                    <p>在图书馆翻到1905年《伦敦晚报》的微缩胶片，有一则关于圣玛丽亚教堂火灾的短讯：</p>
+                    <p>"昨夜教堂西侧小礼拜堂突发火灾，原因未明。珍贵藏品多被焚毁，惟彩色玻璃窗奇迹般完好。警方称现场未发现纵火痕迹，疑为电路老化。"</p>
+                    <br>
+                    <p>有没有人觉得"电路老化"这个解释太轻描淡写了？那个时代教堂的电路应该很简陋才对。</p>
+                </div>
+                <div class="comments">
+                    <div class="comment">
+                        <div class="comment-meta">
+                            <span class="comment-author">电工学徒</span>
+                            <span class="comment-time">2009-11-18 08:45:22</span>
+                        </div>
+                        <div class="comment-content">
+                            1905年教堂的电路确实简单，但如果真是电路问题，应该从祭坛或主殿开始烧，而不是小礼拜堂。
+                        </div>
+                    </div>
+                    
+                    <div class="comment">
+                        <div class="comment-meta">
+                            <span class="comment-author">匿名</span>
+                            <span class="comment-time">2009-11-20 21:10:15</span>
+                        </div>
+                        <div class="comment-content">
+                            （小声）我爷爷说，有些画会因为颜料成分在特定温度下自燃，尤其是老画。不过我不懂化学，就当传说听吧。
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <!-- 页脚 -->
+        <div class="footer">
+            <p>艺海拾疑 · 艺术交流论坛</p>
+            <p>© 2010-2023 · 本论坛内容为历史讨论记录，仅供参考 · 最后更新：2010-04-05</p>
+        </div>
+    </div>
+
+    <script>
+        // 搜索功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('search-input');
+            const searchBtn = document.getElementById('search-btn');
+            const searchResults = document.getElementById('search-results');
+            const resultsContainer = document.getElementById('results-container');
+            
+            // 搜索关键词与结果的映射
+            const searchData = {
+                '紫藤画廊': [
+                    {
+                        title: '紫藤画廊官方网站',
+                        url: 'wisteria-Gallery.html'
+                    },
+                    {
+                        title: '紫藤画廊事件新闻报道',
+                        url: 'wisteria-news.html'
+                    }
+                ],
+                '肖像': {
+                    title: '肖像画专题讨论',
+                    url: '#'
+                },
+                '圣玛丽亚教堂': {
+                    title: '圣玛丽亚教堂火灾记录',
+                    url: '#'
+                },
+                '柯罗': {
+                    title: '柯罗作品拍卖信息',
+                    url: '#'
+                },
+                '威尼斯红': {
+                    title: '威尼斯红颜料配方讨论',
+                    url: '#'
+                },
+                '古典布光': {
+                    title: '古典布光摄影技术',
+                    url: '#'
+                }
+            };
+            
+            // 搜索函数
+            function performSearch() {
+                const query = searchInput.value.trim().toLowerCase();
+                resultsContainer.innerHTML = '';
+                
+                if (!query) {
+                    searchResults.style.display = 'none';
+                    return;
+                }
+                
+                // 显示搜索结果区域
+                searchResults.style.display = 'block';
+                
+                // 查找匹配的结果
+                let foundResults = false;
+                
+                for (const [keyword, data] of Object.entries(searchData)) {
+                    if (query.includes(keyword.toLowerCase()) || keyword.toLowerCase().includes(query)) {
+                        // 检查data是否为数组（多个结果）
+                        if (Array.isArray(data)) {
+                            // 显示多个结果
+                            data.forEach(item => {
+                                const resultItem = document.createElement('div');
+                                resultItem.className = 'result-item';
+                                resultItem.innerHTML = `
+                                    <a href="${item.url}" class="result-link" target="_blank">${item.title}</a>
+                                `;
+                                resultsContainer.appendChild(resultItem);
+                            });
+                        } else {
+                            // 单个结果（保持原有逻辑）
+                            const resultItem = document.createElement('div');
+                            resultItem.className = 'result-item';
+                            resultItem.innerHTML = `
+                                <a href="${data.url}" class="result-link" target="_blank">${data.title}</a>
+                            `;
+                            resultsContainer.appendChild(resultItem);
+                        }
+                        foundResults = true;
+                    }
+                }
+                
+                // 如果没有找到结果
+                if (!foundResults) {
+                    resultsContainer.innerHTML = `
+                        <div class="result-item">未找到与"${query}"相关的讨论。</div>
+                    `;
+                }
+            }
+            
+            // 搜索按钮点击事件
+            searchBtn.addEventListener('click', performSearch);
+            
+            // 输入框回车事件
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
