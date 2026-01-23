@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>圣玛丽亚教堂数字档案馆 - 《窗边的忏悔者》</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --beige: #f5f1e8;
+            --light-beige: #f9f7f2;
+            --dark-beige: #e8e1d1;
+            --brown: #5c4033;
+            --dark-brown: #3d2c1d;
+            --gold: #b8943c;
+            --red: #8b4513;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+        
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background-color: var(--beige);
+            color: var(--dark-brown);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* 头部区域 */
+        .header {
+            background-color: var(--brown);
+            color: white;
+            padding: 40px 20px;
+            margin-bottom: 30px;
+            text-align: center;
+            border-radius: 5px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--gold), #e8c56a, var(--gold));
+        }
+        
+        .church-name {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .archive-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--gold);
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        /* 内容区域 */
+        .content-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .main-content {
+            flex: 3;
+            min-width: 300px;
+        }
+        
+        .sidebar {
+            flex: 1;
+            min-width: 280px;
+        }
+        
+        /* 卡片设计 */
+        .card {
+            background-color: white;
+            border-radius: 5px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 3px 10px var(--shadow);
+            border: 1px solid var(--dark-beige);
+        }
+        
+        .card-title {
+            font-size: 1.6rem;
+            color: var(--brown);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--gold);
+            font-weight: 600;
+        }
+        
+        /* 信息表格 */
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        
+        .info-table th {
+            text-align: left;
+            padding: 12px 15px;
+            background-color: var(--light-beige);
+            border-bottom: 1px solid var(--dark-beige);
+            color: var(--brown);
+            font-weight: 600;
+            width: 35%;
+        }
+        
+        .info-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--dark-beige);
+            vertical-align: top;
+        }
+        
+        .info-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        /* 引用样式 */
+        .quote-box {
+            background-color: var(--light-beige);
+            border-left: 4px solid var(--gold);
+            padding: 20px;
+            margin: 20px 0;
+            font-style: italic;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .quote-attribution {
+            text-align: right;
+            margin-top: 15px;
+            font-style: normal;
+            font-weight: 500;
+            color: var(--red);
+        }
+        
+        /* 分隔线 */
+        .divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--gold), transparent);
+            margin: 25px 0;
+        }
+        
+        /* 状态标签 */
+        .status-badge {
+            display: inline-block;
+            background-color: rgba(184, 148, 60, 0.1);
+            color: var(--red);
+            padding: 5px 12px;
+            border-radius: 3px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid rgba(184, 148, 60, 0.3);
+            margin-left: 10px;
+        }
+        
+        /* 侧边栏 */
+        .sidebar-card {
+            background-color: white;
+            border-radius: 5px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 3px 10px var(--shadow);
+            border: 1px solid var(--dark-beige);
+        }
+        
+        .sidebar-title {
+            font-size: 1.4rem;
+            color: var(--brown);
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--gold);
+            font-weight: 600;
+        }
+        
+        .metadata-list {
+            list-style-type: none;
+        }
+        
+        .metadata-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--dark-beige);
+        }
+        
+        .metadata-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .metadata-label {
+            font-weight: 600;
+            color: var(--brown);
+            display: block;
+            margin-bottom: 3px;
+        }
+        
+        /* 日志表格 */
+        .log-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+        
+        .log-table th {
+            text-align: left;
+            padding: 10px;
+            background-color: var(--light-beige);
+            border-bottom: 1px solid var(--dark-beige);
+            color: var(--brown);
+            font-weight: 600;
+        }
+        
+        .log-table td {
+            padding: 10px;
+            border-bottom: 1px solid var(--dark-beige);
+            vertical-align: top;
+        }
+        
+        /* 页脚 */
+        .footer {
+            text-align: center;
+            padding: 25px;
+            color: var(--brown);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--dark-beige);
+            margin-top: 40px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .content-wrapper {
+                flex-direction: column;
+            }
+            
+            .church-name {
+                font-size: 2.2rem;
+            }
+            
+            .card {
+                padding: 20px;
+            }
+            
+            .info-table th, .info-table td {
+                display: block;
+                width: 100%;
+                padding: 8px 0;
+            }
+            
+            .info-table th {
+                border-bottom: none;
+                padding-top: 15px;
+                background: none;
+                padding-bottom: 5px;
+            }
+            
+            .info-table tr {
+                border-bottom: 1px solid var(--dark-beige);
+                padding-bottom: 10px;
+            }
+            
+            .info-table tr:last-child {
+                border-bottom: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 头部 -->
+        <header class="header">
+            <h1 class="church-name">圣玛丽亚教堂</h1>
+            <p class="archive-title">数字档案馆 · 《窗边的忏悔者》档案记录</p>
+        </header>
+        
+        <div class="content-wrapper">
+            <!-- 主内容区 -->
+            <main class="main-content">
+                <!-- 档案概览 -->
+                <section class="card">
+                    <h2 class="card-title">档案概览</h2>
+                    <p>本档案记录圣玛丽亚教堂所藏画作《窗边的忏悔者》的相关信息，包括画作登记、捐赠记录、存放期间的异常现象，以及1905年火灾后的状态。此档案为教堂数字档案馆的一部分，旨在保存历史记录并供研究者参考。</p>
+                    
+                    <div class="divider"></div>
+                    
+                    <table class="info-table">
+                        <tr>
+                            <th>档案编号：</th>
+                            <td>SM-ARC-1905-09-012</td>
+                        </tr>
+                        <tr>
+                            <th>记录日期：</th>
+                            <td>1905年9月12日</td>
+                        </tr>
+                        <tr>
+                            <th>当前状态：</th>
+                            <td>遗失/状态不明 <span class="status-badge">异常标记</span></td>
+                        </tr>
+                        <tr>
+                            <th>最后更新：</th>
+                            <td>2008年11月（数字化项目补录）</td>
+                        </tr>
+                    </table>
+                </section>
+                
+                <!-- 画作信息 -->
+                <section class="card">
+                    <h2 class="card-title">画作信息</h2>
+                    <table class="info-table">
+                        <tr>
+                            <th>画作名称：</th>
+                            <td>《窗边的忏悔者》（The Confessor by the Window）</td>
+                        </tr>
+                        <tr>
+                            <th>创作者：</th>
+                            <td>杰弗里·哈罗德（Geoffrey Harrod）</td>
+                        </tr>
+                        <tr>
+                            <th>创作年代：</th>
+                            <td>约1888年</td>
+                        </tr>
+                        <tr>
+                            <th>材质与尺寸：</th>
+                            <td>布面油画，70 cm × 90 cm</td>
+                        </tr>
+                        <tr>
+                            <th>捐赠日期：</th>
+                            <td>1905年2月</td>
+                        </tr>
+                        <tr>
+                            <th>捐赠人：</th>
+                            <td>一位虔诚的信友后代（匿名捐赠）</td>
+                        </tr>
+                        <tr>
+                            <th>原存放位置：</th>
+                            <td>西侧小礼拜堂北墙</td>
+                        </tr>
+                    </table>
+                </section>
+                
+                <!-- 捐赠附言 -->
+                <section class="card">
+                    <h2 class="card-title">捐赠附言</h2>
+                    <div class="quote-box">
+                        <p>"此画为家父生前所嘱托，应归还于神圣静谧之地。</p>
+                        <p>画中之人曾于忏悔中获释，然其形神似仍困于窗前。</p>
+                        <p>愿圣堂之光予其安宁，亦愿此画不再流转于世。"</p>
+                        <div class="quote-attribution">—— 无名氏 谨呈，1905年2月</div>
+                    </div>
+                </section>
+                
+                <!-- 异常记录 -->
+                <section class="card">
+                    <h2 class="card-title">存放期间的异常记录</h2>
+                    <p style="margin-bottom: 15px;">1905年3月—10月，值班日志节选：</p>
+                    
+                    <table class="log-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 20%;">日期</th>
+                                <th style="width: 15%;">记录人员</th>
+                                <th>内容概要</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1905.03.15</td>
+                                <td>守夜人</td>
+                                <td>"凌晨二时许，小礼拜堂内有持续低语声，入内巡查未见人影。声源似近北墙。"</td>
+                            </tr>
+                            <tr>
+                                <td>1905.04.22</td>
+                                <td>司事</td>
+                                <td>"多位信友反映立于《忏悔者》画前时胸闷气短，建议移位或覆罩。"</td>
+                            </tr>
+                            <tr>
+                                <td>1905.05.10</td>
+                                <td>神父</td>
+                                <td>"画中人物眼神异常生动，尤其暮时。已嘱夜间以绒布覆盖。"</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+                
+                <!-- 火灾记录 -->
+                <section class="card">
+                    <h2 class="card-title">火灾记录与现状</h2>
+                    <table class="info-table">
+                        <tr>
+                            <th>火灾日期：</th>
+                            <td>1905年11月8日夜</td>
+                        </tr>
+                        <tr>
+                            <th>受损区域：</th>
+                            <td>西侧小礼拜堂</td>
+                        </tr>
+                        <tr>
+                            <th>画作状态：</th>
+                            <td>未见于火灾残留物清单</td>
+                        </tr>
+                    </table>
+                    
+                    <div class="divider"></div>
+                    
+                    <h3 style="color: var(--brown); margin-bottom: 15px; font-size: 1.2rem;">档案异常备注</h3>
+                    <div class="quote-box" style="background-color: rgba(184, 148, 60, 0.05);">
+                        <p>本条目在2008年教堂档案数字化初期已录入系统，但原始纸质捐赠凭证、入库单及部分值班日志页（1905.10—11月）均被销毁。目前仅能依据早期誊抄本、值班人员口述记录及火灾前后目录对比，还原部分信息。</p>
+                    </div>
+                    
+                    <div style="margin-top: 20px;">
+                        <p><strong>现状备注：</strong>该画作目前列为圣玛丽亚堂"遗失/状态不明"藏品。如有任何机构或个人持有与此画相关的文献、图像或实物线索，请与教堂档案室联系。</p>
+                    </div>
+                </section>
+            </main>
+            
+            <!-- 侧边栏 -->
+            <aside class="sidebar">
+                <div class="sidebar-card">
+                    <h3 class="sidebar-title">档案详情</h3>
+                    <ul class="metadata-list">
+                        <li>
+                            <span class="metadata-label">档案编号</span>
+                            SM-ARC-1905-09-012
+                        </li>
+                        <li>
+                            <span class="metadata-label">分类</span>
+                            艺术藏品 / 异常记录
+                        </li>
+                        <li>
+                            <span class="metadata-label">创建者</span>
+                            圣玛丽亚教堂档案室
+                        </li>
+                        <li>
+                            <span class="metadata-label">数字化日期</span>
+                            2008年11月
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="sidebar-card">
+                    <h3 class="sidebar-title">档案员批注</h3>
+                    <div class="quote-box" style="padding: 15px; font-size: 0.95rem;">
+                        <p>本条目所载异常现象均据实转录自历史文档，不代表教堂官方立场。</p>
+                        <p>部分记录或因年代久远、笔误或记忆偏差而与事实有所出入，仅供研究参考。</p>
+                        <div class="quote-attribution" style="margin-top: 10px;">—— 档案数字化项目组<br>2023年11月30日</div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+        
+        <!-- 页脚 -->
+        <footer class="footer">
+            <p>© 2023 圣玛丽亚教堂数字档案馆 · 本档案为教堂历史记录的一部分，仅供研究参考</p>
+            <p style="margin-top: 10px;">档案编号：SM-ARC-1905-09-012 | 最后更新：2008年</p>
+        </footer>
+    </div>
+</body>
+</html>
